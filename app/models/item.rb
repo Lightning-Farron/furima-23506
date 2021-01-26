@@ -22,5 +22,5 @@ class Item < ApplicationRecord
     validates :pays_to_ship_id
   end
 
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, length: { minimum: 3, maxinum: 7 }, numericality: { only_integer: true, greater_than: 300, less_than: 10000000 }
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }, length: { minimum: 3, maxinum: 7 }, numericality: { only_integer: true, greater_than: 299, less_than: 10000000 }
 end
