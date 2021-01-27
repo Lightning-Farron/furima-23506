@@ -32,25 +32,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
+      it "カテゴリーの情報が--では登録できない" do
+        @item.category_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category must be other than 0")
+      end
       it "商品の状態についての情報が空では登録できない" do
         @item.condition_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+      it "商品の状態が--では登録できない" do
+        @item.condition_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition must be other than 0")
       end
       it "配送料の負担についての情報が空では登録できない" do
         @item.shipping_charge_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
       end
+      it "配送料の負担が--では登録できない" do
+        @item.shipping_charge_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 0")
+      end
       it "発送元の地域についての情報が空では登録できない" do
         @item.prefectures_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefectures can't be blank")
       end
+      it "発送元の地域についての情報が--では登録できない" do
+        @item.prefectures_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefectures must be other than 0")
+      end
       it "発送までの日数についての情報が空では登録できない" do
         @item.pays_to_ship_id = ""
         @item.valid?
         expect(@item.errors.full_messages).to include("Pays to ship can't be blank")
+      end
+      it "発送までの日数についての情報が--では登録できない" do
+        @item.pays_to_ship_id = 0
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Pays to ship must be other than 0")
       end
       it "価格についての情報が空では登録できない" do
         @item.price = ""
