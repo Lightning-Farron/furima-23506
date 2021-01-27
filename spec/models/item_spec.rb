@@ -97,6 +97,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is too short (minimum is 3 characters)", "Price is not a number")
       end
+      it "価格が半角英数混合では登録できない" do
+        @item.price = "hoge11"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+      it "価格が半角英語では登録できない" do
+        @item.price = "hoge"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
     end
   end
 end
