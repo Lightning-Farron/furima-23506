@@ -13,6 +13,10 @@ RSpec.describe OrderAddress, type: :model do
       it "郵便番号、都道府県、市町村、番地、電話番号の情報があれば、商品の購入ができる" do
         expect(@order_address).to be_valid
       end
+      it "建物名が空でも購入できる" do
+        @order_address.building_name =""
+        expect(@order_address).to be_valid
+      end
     end
     context '商品購入できないとき' do
       it '郵便番号が空では購入できない' do
