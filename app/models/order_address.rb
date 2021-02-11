@@ -19,4 +19,3 @@ class OrderAddress
   end
 end
 
-#\A0[5789]0[-]?\d{4}[-]?\d{4}\z

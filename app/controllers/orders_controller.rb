@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: :index
-  before_action :ensure_correct_user, only: :index
   before_action :set_order_address, only: [:index, :create]
+  before_action :ensure_correct_user, only: :index
+  
 
   def index
     @order_address = OrderAddress.new
@@ -33,15 +34,13 @@ class OrdersController < ApplicationController
     )
   end
 
-  def ensure_correct_user
-    @item = Item.find(params[:item_id])
-    if current_user.id == @item.user_id || @item.order != nil
-      redirect_to root_path
-    end
-  end
-
   def set_order_address
     @item = Item.find(params[:item_id])
   end
 
+  def ensure_correct_user
+    if current_user.id == @item.user_id || @item.order != nil
+      redirect_to root_path
+    end
+  end
 end
