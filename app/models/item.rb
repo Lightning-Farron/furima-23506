@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_one_attached :image
+  has_many_attached :images
   belongs_to :user
   has_one :order
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :pays_to_ship
 
   with_options presence: true do
-    validates :image
+    validates :images
     validates :name
     validates :description
   end  

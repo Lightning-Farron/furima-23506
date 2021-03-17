@@ -13,9 +13,9 @@ RSpec.describe Item, type: :model do
     end
     context '商品出品登録できないとき' do
       it "商品画像が空では登録できない" do
-        @item.image = nil
+        @item.images = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("Images can't be blank")
       end
       it "商品名が空では登録できない" do
         @item.name = ""
@@ -58,14 +58,14 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Shipping charge must be other than 0")
       end
       it "発送元の地域についての情報が空では登録できない" do
-        @item.prefectures_id = ""
+        @item.prefecture_id = ""
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures can't be blank")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it "発送元の地域についての情報が--では登録できない" do
-        @item.prefectures_id = 0
+        @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefectures must be other than 0")
+        expect(@item.errors.full_messages).to include("Prefecture must be other than 0")
       end
       it "発送までの日数についての情報が空では登録できない" do
         @item.pays_to_ship_id = ""
