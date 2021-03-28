@@ -111,6 +111,17 @@
 
 /* /商品名と商品説明 */
 
+.tag-field{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.input-tag{
+  padding-left: 10px;
+}
+
 /* 商品の詳細など */
 .items-detail {
   display: flex;

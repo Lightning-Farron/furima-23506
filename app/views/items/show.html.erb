@@ -75,6 +75,15 @@
         <span>不適切な商品の通報</span>
       </div>
     </div>
+    <div class="tag-box">
+      <ul class="tag">
+        <li class="tag-list">
+          <% @item.tags.each do |tag| %>
+            #<%=tag.tag_name%>
+          <%end%>
+        </li>
+      </ul>
+    </div>
   </div>
   <%# /商品の概要 %>
 
