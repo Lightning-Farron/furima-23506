@@ -5,6 +5,7 @@
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
+    <% breadcrumb :orders, @item %>
     <%# 購入内容の表示 %>
     <div class='buy-item-info'>
       <%= image_tag @item.images[0], class: 'buy-item-img' %>

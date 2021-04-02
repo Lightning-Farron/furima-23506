@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(edit_params)
       redirect_to root_path
     else
       render :edit
@@ -71,10 +71,10 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:items_tag).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :prefecture_id, :pays_to_ship_id, :price, :tag_name, images: []).merge(user_id: current_user.id)
   end
-#タグの編集
-  # def edit_params
-  #   params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :prefecture_id, :pays_to_ship_id, :price, images: []).merge(user_id: current_user.id)
-  # end
+
+  def edit_params
+    params.require(:item).permit(:name, :description, :category_id, :condition_id, :shipping_charge_id, :prefecture_id, :pays_to_ship_id, :price, images: []).merge(user_id: current_user.id)
+  end
   
   def set_item
     @item = Item.find(params[:id])
@@ -83,6 +83,7 @@ class ItemsController < ApplicationController
     # @item_tag_relations.each do |item_tag_relation|
     #   tag = Tag.find(item_tag_relation.tag_id)
     # end
+#タグの編集    
   end
 
   def ensure_correct_user
