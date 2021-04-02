@@ -9,7 +9,7 @@
     <%= form_with model: @item_tag, url: items_path, local: true do |f| %>
  
     <%= render 'shared/error_messages', model: f.object %>
-
+    <% breadcrumb :items %>
     <%# 出品画像 %>
     <div class="img-upload">
       <div class="weight-bold-text">
