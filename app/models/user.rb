@@ -19,4 +19,6 @@ class User < ApplicationRecord
   end
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]{6,128}+\z/i }
+
+  has_one :address_user
 end
