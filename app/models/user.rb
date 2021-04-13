@@ -21,4 +21,5 @@ class User < ApplicationRecord
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[\w-]{6,128}+\z/i }
 
   has_one :address_user
+  has_one :card, dependent: :destroy
 end
