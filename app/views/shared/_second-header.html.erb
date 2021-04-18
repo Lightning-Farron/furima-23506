@@ -1,3 +1,5 @@
 <header class='second-header'>
   <%= link_to image_tag("furima-logo-color.png", class:"second-logo"), "/" %>
+  <%= link_to "Facebookで登録", user_facebook_omniauth_authorize_path, method: :post%>
+  <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, method: :post%>
 </header>
