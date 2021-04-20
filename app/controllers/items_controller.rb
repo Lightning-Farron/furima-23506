@@ -45,6 +45,8 @@ class ItemsController < ApplicationController
 
   def show
     set_item_column
+    @message = Message.new
+    @messages = @item.messages.includes(:user)
   end
 
   def destroy
