@@ -10,4 +10,5 @@ class Item < ApplicationRecord
   belongs_to :pays_to_ship
   has_many :item_tag_relations, dependent: :destroy
   has_many :tags, through: :item_tag_relations
+  has_many :messages
 end
